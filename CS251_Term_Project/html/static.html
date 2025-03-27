@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>"Abdul's Literary Lendings"</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <!-- ======= boxicons ====== -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<style>
+    .transparent-button {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--color-orange);
+        /* สีของ text */
+        font-size: 16px;
+        /* ขนาดของตัวอักษร */
+    }
+</style>
+
+<body>
+    <!-- =============== Sidebar ================ -->
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="..\logo\CS251_Logo.png" alt="" class="logo-img">
+                        </span>
+                        <span class="title">"Abdul's Literary Lendings"</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <i class="bx bx-home"></i>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="book.php">
+                        <span class="icon">
+                            <i class="bx bx-book"></i>
+                        </span>
+                        <span class="title">Books</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lending.php">
+                        <span class="icon">
+                            <i class="bx bx-book-reader"></i>
+                        </span>
+                        <span class="title">Lendings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addbook.html">
+                        <span class="icon">
+                            <i class='bx bx-book-add'></i>
+                        </span>
+                        <span class="title">Addbook</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="customer.html">
+                        <span class="icon">
+                            <i class="bx bx-body"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="event.preventDefault();">
+                        <span class="icon">
+                            <i class="bx bx-stats"></i>
+                        </span>
+                        <span class="title">Statics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="bx bx-menu" id="btn"></i>
+                </div>
+
+<div class="search">
+    <form id="searchForm" action="searchbook.php" method="post">
+        <label>
+            <input id="searchInput" type="text" name="search" placeholder="Search here">
+            <i class="bx bx-search"></i>
+        </label>
+    </form>
+</div>
+                <!-- ========================= Profile Dropdown  ==================== -->
+                <div class="user">
+                    <img src="..\Photo\Profile.png" alt="" class="profile-dropdown" onclick="toggleMenu()">
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="submenu">
+                        <div class="user-info">
+                            <img src="..\Photo\Profile.png" alt="">
+                            <h3>Lio Ronaldo<br>Manager</h3>
+
+                        </div>
+                        <hr>
+                        <a href="staffprofile.php" class="sub-menu-link" onclick="showPage('profile')">
+                            <i class='bx bx-user'></i>
+                            <p>Profile</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-bell'></i>
+                            <p> Notification</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-message-edit'></i>
+                            <p> Language</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="signin.html" class="sub-menu-link">
+                            <i class="bx bx-log-out"></i>
+                            <p> Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                <!-- ======================== Static ======================  -->
+                <div id="Statics">
+                    <!-- กล่องที่1 newcustomer -->
+                    <div class="box1">
+                        <span class="newcustomer">
+                            <b>New Customers</b>
+                        </span>
+                        <p class="count" id="customer_count">
+                            <b>268</b>
+                        </p>
+                        <span class="selecttime" id="statDate">
+                            Since last week
+                        </span>
+                        <div class="chart1">
+                            <div class="outer">
+
+                                <div class="inner">
+
+                                </div>
+
+                            </div>
+                        </div> <svg class="backgroundchart" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="backgroundcircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <svg class="chartcustomer" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                            height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="customercircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <div class="chartpercentage" id="customerpercent">
+                            <b>58</b>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <!-- กล่องที่สอง onlineorder -->
+                    <div class="box2">
+                        <span class="onlineorder">
+                            <b>Online Orders</b>
+                        </span>
+                        <p class="count" id="ordercount">
+                            <b>8715</b>
+                        </p>
+                        <span class="selecttime" id="statDate">
+                            Since last month
+                        </span>
+                        <div class="chart1">
+                            <div class="outer">
+
+                                <div class="inner">
+
+                                </div>
+
+                            </div>
+                        </div><svg class="backgroundchart" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="backgroundcircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <svg class="chartorder" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                            height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="ordercircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <div class="chartpercentage" id="customerpercent">
+                            <b>80</b>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- กล่องที่ 3 revenue -->
+                    <div class="box3">
+                        <span class="revenue">
+                            <b>Revenue</b>
+                        </span>
+                        <p class="count" id="revenue_count">
+                            <b>$</b><b>929</b>
+                        </p>
+                        <span class="selecttime" id="statDate">
+                            From This week
+                        </span>
+                        <div class="chart1">
+                            <div class="outer">
+
+                                <div class="inner">
+
+                                </div>
+
+                            </div>
+                        </div> <svg class="backgroundchart" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="backgroundcircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <svg class="chartrevenue" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                            height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="revenuecircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <div class="chartpercentage" id="customerpercent">
+                            <b>77</b>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- กล่องที่ 4 dailyaverage -->
+
+                    <div class="box4">
+                        <span class="dailyaverage">
+                            <b>Daily Average</b>
+                        </span>
+                        <p class="count" id="average_count">
+                            <b>$</b><b>78
+
+                            </b>
+                        </p>
+                        <span class="selecttime" id="statDate">
+                            Revenue Today
+                        </span>
+                        <div class="chart1">
+                            <div class="outer">
+
+                                <div class="inner">
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <svg class="backgroundchart" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                            height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="backgroundcircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <svg class="chartaverage" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px"
+                            height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63" />
+                                    <stop offset="100%" stop-color="#673ab7" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="averagecircle" cx="50" cy="50" r="38" stroke-linecap="round" />
+                        </svg>
+                        <div class="chartpercentage" id="customerpercent">
+                            <b>35</b>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- กล่องที่ 5 กราฟ sales analytics  -->
+
+                    <div class="box5">
+                        <span class="analytics">
+                            <b>Sales Analytics</b>
+                        </span>
+                        <div class="barchart">
+                            <ul class="x">
+                                <li><span>200</span></li>
+                                <li><span>150</span></li>
+                                <li><span>100</span></li>
+                                <li><span>50</span></li>
+                                <li><span>0</span></li>
+                            </ul>
+                            <ul class="bars">
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="10"></div><span
+                                        id="totaldate">1JAN</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="20"></div><span
+                                        id="totaldate">1FEB</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="40"></div><span
+                                        id="totaldate">1MAR</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="80"></div><span
+                                        id="totaldate">1APR</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="100"></div><span
+                                        id="totaldate">1MAY</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="120"></div><span
+                                        id="totaldate">1JUN</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="160"></div><span
+                                        id="totaldate">1JUL</span>
+                                </li>
+                                <li>
+                                    <div class="bar" id="totalborrow" data-percentage="180"></div><span
+                                        id="totaldate">1AUG</span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- กล่องที่ 6 donutchart  -->
+
+                    <div class="box6">
+                        <span class="donut">
+                            <b>Donut Chart</b>
+                        </span>
+                        <div class="donutchart"></div>
+                        <div class="donutdata">
+
+                            <ul class="segment1">
+                                <li id="totalCategory">Series1</li>
+                            </ul>
+                            <ul class="segment2">
+                                <li id="totalCategory">Series2</li>
+                            </ul>
+                            <ul class="segment3">
+                                <li id="totalCategory">Series3</li>
+                            </ul>
+                            <ul class="segment4">
+                                <li id="totalCategory">Series4</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+
+
+        <!-- ======================== Addbook ======================  -->
+        <div id="Addbook">
+        </div>
+        <!-- ======================================= End =============================================  -->
+    </div>
+    </div>
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="..\static\js\main.js"></script>
+    <script>
+        $(function () {
+            $('.bars li .bar').each(function (key, bar) {
+                var percentage = $(this).data('percentage');
+                $(this).animate({
+                    'height': percentage + ''
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

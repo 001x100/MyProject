@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>"Abdul's Literary Lendings"</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <!-- ======= boxicons ====== -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<style>
+    .transparent-button {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--color-orange);
+        /* สีของ text */
+        font-size: 16px;
+        /* ขนาดของตัวอักษร */
+    }
+</style>
+
+<body>
+    <!-- =============== Sidebar ================ -->
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <img src="..\logo\CS251_Logo.png" alt="" class="logo-img">
+                        </span>
+                        <span class="title">"Abdul's Literary Lendings"</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <i class="bx bx-home"></i>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="book.php">
+                        <span class="icon">
+                            <i class="bx bx-book"></i>
+                        </span>
+                        <span class="title">Books</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lending.php">
+                        <span class="icon">
+                            <i class="bx bx-book-reader"></i>
+                        </span>
+                        <span class="title">Lendings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addbook.html">
+                        <span class="icon">
+                            <i class='bx bx-book-add'></i>
+                        </span>
+                        <span class="title">Addbook</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="customer.html">
+                        <span class="icon">
+                            <i class="bx bx-body"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="static.html">
+                        <span class="icon">
+                            <i class="bx bx-stats"></i>
+                        </span>
+                        <span class="title">Statics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="bx bx-menu" id="btn"></i>
+                </div>
+
+<div class="search">
+    <form id="searchForm" action="searchbook.php" method="post">
+        <label>
+            <input id="searchInput" type="text" name="search" placeholder="Search here">
+            <i class="bx bx-search"></i>
+        </label>
+    </form>
+</div>
+                <!-- ========================= Profile Dropdown  ==================== -->
+                <div class="user">
+                    <img src="..\Photo\Profile.png" alt="" class="profile-dropdown" onclick="toggleMenu()">
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="submenu">
+                        <div class="user-info">
+                            <img src="..\Photo\Profile.png" alt="">
+                            <h3>Lio Ronaldo<br>Manager</h3>
+
+                        </div>
+                        <hr>
+                        <a href="staffprofile.php" class="sub-menu-link" onclick="showPage('profile')">
+                            <i class='bx bx-user'></i>
+                            <p>Profile</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-bell'></i>
+                            <p> Notification</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-message-edit'></i>
+                            <p> Language</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="signin.html" class="sub-menu-link">
+                            <i class="bx bx-log-out"></i>
+                            <p> Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                <!-- ======================== Customers ======================  -->
+                <div id="Customers">
+                    <form action="customer.php" method="POST">
+                        <div class="customer-search">
+                            <label>
+                                <input type="text" id="customerID" name="customerID" placeholder="Enter customer ID">
+                            </label>
+                            <div class="button-container">
+                                <button type="submit" class="btn btn-primary" >Enter</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="../php/addcustomer.php" method="POST">
+                    <div class="information-container">
+                        <div style="text-align: center;">
+                            <h2>New customer</h2><br>
+                        </div>
+                        <div class="info-group">
+                            <label for="firstName"> <b>First name:</b> <input type="text"
+                                name="firstName" id="firstName" placeholder="Customer name" required></label>
+                            </div>  
+                        <div class="info-group">
+                            <label for="lastName"> <b>Last name:</b> <input type="text"
+                                name="lastName" id="lastName"    placeholder="Customer lastname" required></label>
+                        </div>   
+                        <div class="info-in my dtive ">
+                            <label for="lastName"> <b>Last n:</b> <input type="text"
+                                name="lastName" id="lastName"    placeholder="Customer lastname" required></label>
+                        </div> 
+                        <div class="info-group">      
+                            <label for="citizen_id"> <b>Citizen ID:</b> <input type="text" name="citizen_id" id="citizen_id"
+                                    placeholder="citizenId" required></label>
+                                    <span id="citizen_id_error" style="color: red;"></span>
+                                </div>   
+                                <div class="info-group">
+                                    <label for="phone"> <b>Phone number:</b> <input type="text" name="phone" id="phone" placeholder="PhoneNumber" required></label>
+                                </div>
+                                <div class="info-group">   
+                                    <label for="customer_type"> <b>Customer type:</b>
+                                <select name="customer_type" id="customer_type">
+                                    <option value="not_member">Not Member</option>
+                                    <option value="member">Member</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="info-group" id="member_info" style="display: none;">
+                            <div class="info-group"> 
+                            <label for="memStart"> <b>Member start:</b> <input type="date" name="memStart" id="memStart"></label>
+                            </div>
+                            <div class="info-group"> 
+                            <label for="memExp"> <b>Member end:</b> <input type="date" name="memExp" id="memExp" ></label>
+                            </div>
+                        </div>
+                        
+                        <div class="button-container">
+                            <button type="submit" class="btn btn-primary" >add</button>
+                        </div>
+                    </div>
+                    </div>
+
+                    </div>
+                </form>
+                </div>
+                </main>
+            </div>
+
+            <script>
+                document.getElementById('customer_type').addEventListener('change', function() {
+                    var memberInfo = document.getElementById('member_info');
+                    if (this.value === 'member') {
+                        memberInfo.style.display = 'block';
+                    } else {
+                        memberInfo.style.display = 'none';
+                    }
+                });
+
+                document.getElementById("citizen_id").addEventListener("input", function() {
+        var citizen_id = this.value;
+        var error_message = "";
+        
+        if (citizen_id.length !== 13 || isNaN(citizen_id)) {
+            error_message = "Citizen ID must be 13 digits long and contain only numbers.";
+        }
+
+        document.getElementById("citizen_id_error").textContent = error_message;
+    });
+            </script>
+
+            <!-- ======================== Addbook ======================  -->
+            <div id="Addbook">
+            </div>
+            <!-- ======================================= End =============================================  -->
+        </div>
+    </div>
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="..\static\js\main.js"></script>
+    <script>
+        $(function () {
+            $('.bars li .bar').each(function (key, bar) {
+                var percentage = $(this).data('percentage');
+                $(this).animate({
+                    'height': percentage + ''
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

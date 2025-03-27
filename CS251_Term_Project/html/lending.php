@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>"Abdul's Literary Lendings"</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <!-- ======= boxicons ====== -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+    .transparent-button {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--color-orange);
+        /* สีของ text */
+        font-size: 16px;
+        /* ขนาดของตัวอักษร */
+    }
+</style>
+
+<body>
+    <!-- =============== Sidebar ================ -->
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="..\logo\CS251_Logo.png" alt="" class="logo-img">
+                        </span>
+                        <span class="title">"Abdul's Literary Lendings"</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <i class="bx bx-home"></i>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="book.php">
+                        <span class="icon">
+                            <i class="bx bx-book"></i>
+                        </span>
+                        <span class="title">Books</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="lending.php">
+                        <span class="icon">
+                            <i class="bx bx-book-reader"></i>
+                        </span>
+                        <span class="title">Lendings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addbook.html">
+                        <span class="icon">
+                            <i class='bx bx-book-add'></i>
+                        </span>
+                        <span class="title">Addbook</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="customer.html">
+                        <span class="icon">
+                            <i class="bx bx-body"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="static.html">
+                        <span class="icon">
+                            <i class="bx bx-stats"></i>
+                        </span>
+                        <span class="title">Statics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="bx bx-menu" id="btn"></i>
+                </div>
+
+<div class="search">
+    <form id="searchForm" action="searchbook.php" method="post">
+        <label>
+            <input id="searchInput" type="text" name="search" placeholder="Search here">
+            <i class="bx bx-search"></i>
+        </label>
+    </form>
+</div>
+                <!-- ========================= Profile Dropdown  ==================== -->
+                <div class="user">
+                    <img src="..\Photo\Profile.png" alt="" class="profile-dropdown" onclick="toggleMenu()">
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="submenu">
+                        <div class="user-info">
+                            <img src="..\Photo\Profile.png" alt="">
+                            <h3>Lio Ronaldo<br>Manager</h3>
+
+                        </div>
+                        <hr>
+                        <a href="staffprofile.php" class="sub-menu-link" onclick="showPage('profile')">
+                            <i class='bx bx-user'></i>
+                            <p>Profile</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-bell'></i>
+                            <p> Notification</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-message-edit'></i>
+                            <p> Language</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="signin.html" class="sub-menu-link">
+                            <i class="bx bx-log-out"></i>
+                            <p> Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+                <!-- ======================== Lendings ======================  -->
+                <div class="content">
+    <div class="Lending" id="Lendings">
+        <h2>All lending</h2><br>
+
+        <!-- เริ่มตาราง Borrowing -->
+        <table id="borrowingTable">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Book ID</th>
+                    <th>Start Date</th>
+                    <th>Return Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ข้อมูลในตารางจะถูกแสดงที่นี่ -->
+            </tbody>
+        </table>
+        <!-- สิ้นสุดตาราง Borrowing -->
+    </div>
+</div>
+
+
+            <!-- ======================== Addbook ======================  -->
+            <div id="Addbook">
+            </div>
+            <!-- ======================================= End =============================================  -->
+        </div>
+    </div>
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="..\static\js\main.js"></script>
+    <script>
+        $(function () {
+            $('.bars li .bar').each(function (key, bar) {
+                var percentage = $(this).data('percentage');
+                $(this).animate({
+                    'height': percentage + ''
+                }, 1000);
+            });
+        });
+
+            // เรียกใช้งานฟังก์ชันเมื่อหน้าเว็บโหลดเสร็จ
+    window.onload = function() {
+        // เรียกฟังก์ชันสำหรับดึงข้อมูล borrowing
+        fetchBorrowingData();
+    }
+
+    // ฟังก์ชันสำหรับดึงข้อมูล borrowing และแสดงในตาราง
+    function fetchBorrowingData() {
+        fetch('../php/fetch_borrowing_data.php')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.querySelector('#borrowingTable tbody');
+                tbody.innerHTML = '';
+
+                // สร้างแถวข้อมูลสำหรับแต่ละการยืมหนังสือ
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${row.customerID}</td>
+                        <td>${row.bookID}</td>
+                        <td>${row.startDate}</td>
+                        <td>${row.returnDate}</td>
+                        <td>
+                        <button onclick="deleteRow('${row.customerID}', '${row.bookID}')" class="return-button"> Return
+                        </button>
+
+                    `;
+                    tbody.appendChild(tr);
+                });
+            });
+    }
+
+    // ฟังก์ชันสำหรับลบแถวในตาราง borrowing
+    function deleteRow(customerID, bookID) {
+        if (confirm('Are you sure you want to delete this row?')) {
+            fetch('../php/delete_borrowing_row.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ customerID, bookID })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // เมื่อลบแถวเสร็จสิ้น ให้ดึงข้อมูลใหม่และแสดงในตาราง
+                    fetchBorrowingData();
+                } else {
+                    alert('Error deleting row');
+                }
+            });
+        }
+    }
+    </script>
+</body>
+
+</html>

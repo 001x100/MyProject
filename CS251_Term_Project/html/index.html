@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>"Abdul's Literary Lendings"</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <!-- ======= boxicons ====== -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<style>
+    .transparent-button {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--color-orange);
+        /* สีของ text */
+        font-size: 16px;
+        /* ขนาดของตัวอักษร */
+    }
+</style>
+
+<body>
+    <!-- =============== Sidebar ================ -->
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <img src="..\logo\CS251_Logo.png" alt="" class="logo-img">
+                        </span>
+                        <span class="title">"Abdul's Literary Lendings"</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <i class="bx bx-home"></i>
+                        </span>
+                        <button class="title transparent-button">Home</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="book.php">
+                        <span class="icon">
+                            <i class="bx bx-book"></i>
+                        </span>
+                        <button class="title transparent-button">Books</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="lending.php">
+                        <span class="icon">
+                            <i class="bx bx-book-reader"></i>
+                        </span>
+                        <button class="title transparent-button">Lendings</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="addbook.html">
+                        <span class="icon">
+                            <i class='bx bx-book-add'></i>
+                        </span>
+                        <button class="title transparent-button">Addbook</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="customer.html">
+                        <span class="icon">
+                            <i class="bx bx-body"></i>
+                        </span>
+                        <button class="title transparent-button">Customers</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="static.html">
+                        <span class="icon">
+                            <i class="bx bx-stats"></i>
+                        </span>
+                        <button class="title transparent-button">Statics</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <i class="bx bx-menu" id="btn"></i>
+                </div>
+
+<div class="search">
+    <form id="searchForm" action="searchbook.php" method="post">
+        <label>
+            <input id="searchInput" type="text" name="search" placeholder="Search here">
+            <i class="bx bx-search"></i>
+        </label>
+    </form>
+</div>
+                  <!-- ========================= Profile Dropdown  ==================== -->
+                  <div class="user">
+                    <img src="..\Photo\Profile.png" alt="" class="profile-dropdown" onclick="toggleMenu()">
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="submenu">
+                        <div class="user-info">
+                            <img src="..\Photo\Profile.png" alt="">
+                            <h3>Lio Ronaldo<br>Manager</h3>
+
+                        </div>
+                        <hr>
+                        <a href="staffprofile.php" class="sub-menu-link" onclick="showPage('profile')">
+                            <i class='bx bx-user'></i>
+                            <p>Profile</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-bell'></i>
+                            <p> Notification</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="" class="sub-menu-link">
+                            <i class='bx bx-message-edit'></i>
+                            <p> Language</p>
+                            <span>></span>
+                        </a>
+
+                        <a href="signin.html" class="sub-menu-link">
+                            <i class="bx bx-log-out"></i>
+                            <p> Logout</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content">
+                <!-- ======================== Home ======================  -->
+                <div id="home">
+                    <h6 style="background-color: lightblue;">Welcome to Abdul's Literary Lendings</h6>
+                    <section class="announcement-section">
+                        <h2>Announcements</h2>
+                        <br />
+                        <div class="announcement-box">
+                            <!-- รูปภาพประกาศ -->
+                            <div class="announcement-image" style="display: block;">
+                                <img src="../photo/announcement1.jpg" alt="Announcement 1">
+                            </div>
+                            <div class="announcement-image" style="display: none;">
+                                <img src="../photo/announcement2.jpg" alt="Announcement 2">
+                            </div>
+                            <div class="announcement-image" style="display: none;">
+                                <img src="../photo/announcement3.jpg" alt="Announcement 3">
+                            </div>
+                        
+                            <!-- เพิ่มลูกศรซ้ายและขวา -->
+                            <div class="arrow left-arrow" onclick="prevImage()">
+                                <i class="bx bx-chevron-left"></i>
+                            </div>
+                            <div class="arrow right-arrow" onclick="nextImage()">
+                                <i class="bx bx-chevron-right"></i>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            let currentImageIndex = 0;
+                            const announcementImages = document.querySelectorAll('.announcement-image');
+                            const delay = 1000;
+
+                            function changeImage(index) {
+                                announcementImages[currentImageIndex].style.display = 'none'; // Hide the current image
+                                currentImageIndex = index;
+                                announcementImages[currentImageIndex].style.display = 'block'; // Show the new image
+                            }
+
+                            // Function to go to the previous image
+                            function prevImage() {
+                                let newIndex = (currentImageIndex - 1 + announcementImages.length) % announcementImages.length;
+                                changeImage(newIndex);
+                            }
+
+                            // Function to go to the next image
+                            function nextImage() {
+                                let newIndex = (currentImageIndex + 1) % announcementImages.length;
+                                changeImage(newIndex);
+                            }
+
+                            // Start the image loop when the page loads
+                            window.addEventListener('load', function () {
+                                // Hide all images except the first one
+                                for (let i = 1; i < announcementImages.length; i++) {
+                                    announcementImages[i].classList.remove('active');
+                                }
+                            });
+                        </script>
+                    </section>
+                    <section class="featured-books-section">
+                        <h2>Featured Books</h2>
+                        <div class="featured-books-container">
+                            <div class="book-card">
+                                <img src="../photo/book1.jpg" alt="Book 1">
+                                <h3>ONE PIECE วันพีซ เล่ม 96</h3>
+                                <p>Author: EIICHIRO ODA (เออิจิโระ โอดะ)</p>
+                            </div>
+                            <div class="book-card">
+                                <img src="../photo/book2.jpg" alt="Book 2">
+                                <h3>ONE PIECE เล่ม 51 (ฉบับสมบูรณ์)</h3>
+                                <p>Author: EIICHIRO ODA (เออิจิโระ โอดะ)</p>
+                            </div>
+                            <div class="book-card">
+                                <img src="../photo/book3.jpg" alt="Book 3">
+                                <h3>ONE PIECE เล่ม 51 (ฉบับสมบูรณ์)</h3>
+                                <p>Author: EIICHIRO ODA (เออิจิโระ โอดะ)</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                </main>
+            </div>
+            <!-- ======================================= End =============================================  -->
+        </div>
+    </div>
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="..\static\js\main.js"></script>
+    <script>
+        $(function () {
+            $('.bars li .bar').each(function (key, bar) {
+                var percentage = $(this).data('percentage');
+                $(this).animate({
+                    'height': percentage + ''
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>
