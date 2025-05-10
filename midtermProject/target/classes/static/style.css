@@ -1,0 +1,371 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+
+section {
+    display: none;
+    padding: 20px;
+}
+
+section.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+form input, form textarea, form select, form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* ตกแต่ง Feedback Section */
+#feedbackSection {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#feedbackSection h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#feedbackSection button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#feedbackSection button:hover {
+    background-color: #45a049;
+}
+/* ตกแต่ง Feedback Section */
+#accessRequestsSection {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#accessRequestsSection h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#accessRequestsSection button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#accessRequestsSection button:hover {
+    background-color: #45a049;
+}
+/* ตกแต่ง Request Access Section */
+#requestAccessSection {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#requestAccessSection h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#requestAccessForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#requestAccessForm label {
+    font-size: 16px;
+    color: #555;
+}
+
+#requestAccessForm input,
+#requestAccessForm textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#requestAccessForm textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#requestAccessForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#requestAccessForm button:hover {
+    background-color: #45a049;
+}
+
+/* ตกแต่งฟอร์ม Add Repair Request */
+#addRepairRequestForm {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#addRepairRequestForm label {
+    font-size: 16px;
+    color: #555;
+}
+
+#addRepairRequestForm input,
+#addRepairRequestForm textarea,
+#addRepairRequestForm select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#addRepairRequestForm textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#addRepairRequestForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addRepairRequestForm button:hover {
+    background-color: #45a049;
+}
+/* ตกแต่ง dropdown */
+.styled-select {
+    width: 150px; /* กำหนดความกว้าง */
+    padding: 5px; /* เพิ่ม padding */
+    font-size: 14px; /* ขนาดตัวอักษร */
+    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 5px; /* มุมโค้ง */
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    color: #333; /* สีตัวอักษร */
+    appearance: none; /* ซ่อนลูกศร dropdown เริ่มต้น */
+    -webkit-appearance: none; /* สำหรับ Safari */
+    -moz-appearance: none; /* สำหรับ Firefox */
+}
+
+/* เพิ่มลูกศร dropdown */
+.styled-select::after {
+    content: "▼"; /* ลูกศร */
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+}
+
+/* เปลี่ยนสีเมื่อ hover */
+.styled-select:hover {
+    border-color: #888; /* เปลี่ยนสีขอบ */
+    background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลัง */
+}
+
+/* เปลี่ยนสีเมื่อ focus */
+.styled-select:focus {
+    outline: none; /* ลบเส้นขอบ focus เริ่มต้น */
+    border-color: #555; /* เปลี่ยนสีขอบ */
+    background-color: #fff; /* เปลี่ยนสีพื้นหลัง */
+}
+.hidden {
+    display: none;
+}
+
+#accessRequestsCards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.card p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+}
+.hidden {
+    display: none;
+}
+.body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;     /* จัดแนวตั้ง */
+    justify-content: center; /* จัดแนวนอน */
+  }
+  
+  .div {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+.feedback-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.feedback-card p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555;
+}

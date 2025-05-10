@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job and Technician Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Job and Technician Management</h1>
+    </header>
+
+    <nav>
+        <button onclick="showSection('requestsSection')">View All Repair Requests</button>
+        <button onclick="showSection('jobsSection')">View All Jobs</button>
+        <button onclick="showSection('techniciansSection')">View All Technicians</button>
+        <button onclick="showSection('requestAccessSection')">Request Access</button>
+        <button onclick="showSection('feedbackSection')">Request Feedback</button>
+    </nav>
+
+    <!-- Jobs Section (default active) -->
+    <section id="jobsSection" class="active">
+        <h2>All Jobs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Requester</th>
+                    <th>Building</th>
+                    <th>Problem</th>
+                    <th>Schedule Date & Time</th>
+                    <th>Technician</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="jobsTable"></tbody>
+        </table>
+    </section>
+
+    <!-- Technicians Section -->
+    <section id="techniciansSection">
+        <h2>All Technicians</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Skills</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="techniciansTable"></tbody>
+        </table>
+
+    </section>
+
+    <!-- Request Access Section -->
+    <section id="requestAccessSection">
+        <h2>Request Access</h2>
+        <form id="requestAccessForm">
+            <label for="vehicleNumber">Vehicle Number:</label>
+            <input type="text" id="vehicleNumber" placeholder="Enter vehicle number" required>
+            
+            <label for="technicianName">Technician Name:</label>
+            <input type="text" id="technicianName" placeholder="Enter technician name" required>
+            
+            
+            <button type="submit">Submit Request</button>
+        </form>
+
+        
+    </section>
+    <section id="accessRequestsSection">
+        <h2>Access Requests</h2>
+        <button id="viewAccessRequestsButton" onclick="toggleAccessRequestsCards()">Refresh Access Requests</button>
+        <div id="accessRequestsCards" class="hidden"></div>
+    </section>
+
+
+    <!-- Feedback Section -->
+    <section id="feedbackSection">
+        <h2>Request Feedback</h2>
+        <button onclick="requestFeedback()">Request Feedback Form</button>
+        <div id="feedbackContainer" class="hidden"></div>
+    </section>
+
+
+
+<!-- Requests Section -->
+<section id="requestsSection">
+    <h2>All Requests</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Requester</th>
+                <th>Problem</th>
+                <th>Building</th>
+                <th>Schedule Date & Time</th>
+                <th>Assign Technician</th>
+                <th>Assign Job</th>
+            </tr>
+        </thead>
+        <tbody id="requestsTable"></tbody>
+    </table>
+</section>
+
+<!-- Assign Job Section -->
+<section id="assignJobSection">
+    <h2>Assign Job</h2>
+    <form id="assignJobForm">
+        <label for="jobDescription">Job Description:</label>
+        <input type="text" id="jobDescription" placeholder="Enter job description" required>
+
+        <label for="jobTechnician">Assign Technician:</label>
+        <select id="jobTechnician">
+            <option value="">Select Technician</option>
+        </select>
+
+        <input type="hidden" id="requestId">
+        <button type="submit">Assign Job</button>
+    </form>
+</section>
+    <script src="script.js"></script>
+</body>
+</html>
